@@ -37,7 +37,7 @@ class StringCalculatorTest {
 
 
         //단언
-        assertThat(customCharacter).isEqualTo(":");
+        assertThat(customCharacter).isEqualTo(":1:2:3");
 
 
     }

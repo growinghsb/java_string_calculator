@@ -21,7 +21,7 @@ public class StringCalculator {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        String formula = blankCheck(inputFormula());
+        printResult(add(formulaSplit(blankCheck(inputFormula()))));
     }
 
     public static String inputFormula() {
