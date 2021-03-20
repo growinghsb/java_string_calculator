@@ -25,6 +25,7 @@ public class StringCalculator {
     }
 
     public static String inputFormula() {
+        System.out.println("계산식을 입력해주세요!");
         return scanner.nextLine();
     }
 
@@ -58,9 +59,16 @@ public class StringCalculator {
     public static int add(String[] formula) {
         int sum = 0;
         for (String s : formula) {
-            sum += Integer.parseInt(s);
+            sum += Integer.parseInt(negativeCheck(s));
         }
         return sum;
+    }
+
+    public static String negativeCheck(String token) {
+        if (Integer.parseInt(token) < 0) {
+            throw new RuntimeException("음수는 입력이 불가 합니다.");
+        }
+        return token;
     }
 
     public static void printResult(int result) {

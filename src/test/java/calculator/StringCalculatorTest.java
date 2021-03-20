@@ -73,4 +73,19 @@ class StringCalculatorTest {
         assertThat(result).isEqualTo(3);
 
     }
+
+    @Test
+    @DisplayName("음수 입력시 RuntimeError")
+    public void RuntimeExceptionCheck() {
+        //준비
+
+        //실행
+
+
+        //단언
+        assertThrows(RuntimeException.class, () -> {
+            StringCalculator.negativeCheck("-1");
+        });
+
+    }
 }
