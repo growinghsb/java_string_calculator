@@ -38,7 +38,7 @@ public class StringCalculator {
 
     public static String[] formulaSplit(String formula) {
         if (formula.contains("/")) {
-            String customFormula = customCharacterExtraction(formula);
+            String customFormula = customCharacterWithFormulaExtraction(formula);
 
             char customSeparator = customFormula.charAt(0);
             formula = customFormula.substring(1);
@@ -48,7 +48,7 @@ public class StringCalculator {
         return formula.split(",|;");
     }
 
-    public static String customCharacterExtraction(String formula) {
+    public static String customCharacterWithFormulaExtraction(String formula) {
         Matcher matcher = compile("//(.)<<(.*)").matcher(formula);
         while (matcher.find()) {
             formula = matcher.group(1) + matcher.group(2);

@@ -31,7 +31,7 @@ class StringCalculatorTest {
     @DisplayName("커스텀 문자 추출")
     public void customCharacterExtraction() {
         //준비
-        String customCharacter = StringCalculator.customCharacterExtraction("//:<<1:2:3");
+        String customCharacter = StringCalculator.customCharacterWithFormulaExtraction("//:<<1:2:3");
 
         //실행
 
