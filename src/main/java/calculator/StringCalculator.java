@@ -1,6 +1,10 @@
 package calculator;
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static java.util.regex.Pattern.*;
 
 /**
  * 구현 기능
@@ -17,7 +21,7 @@ public class StringCalculator {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-
+        String formula = blankCheck(inputFormula());
     }
 
     public static String inputFormula() {
@@ -27,6 +31,26 @@ public class StringCalculator {
     public static String blankCheck(String formula) {
         if (formula.isBlank()) {
             return "0";
+        }
+        return formula;
+    }
+
+    public static String[] formulaSplit(String formula) {
+        if (formula.contains("/")) {
+            String customFormula = customCharacterExtraction(formula);
+
+            char customSeparator = customFormula.charAt(0);
+            formula = customFormula.substring(1);
+
+            return formula.split(customSeparator + "");
+        }
+        return formula.split(",|;");
+    }
+
+    public static String customCharacterExtraction(String formula) {
+        Matcher matcher = compile("//(.)<<(.*)").matcher(formula);
+        while (matcher.find()) {
+            formula = matcher.group(1) + matcher.group(2);
         }
         return formula;
     }

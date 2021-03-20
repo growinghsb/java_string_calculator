@@ -26,4 +26,37 @@ class StringCalculatorTest {
 
 
     }
+
+    @Test
+    @DisplayName("커스텀 문자 추출")
+    public void customCharacterExtraction() {
+        //준비
+        String customCharacter = StringCalculator.customCharacterExtraction("//:<<1:2:3");
+
+        //실행
+
+
+        //단언
+        assertThat(customCharacter).isEqualTo(":");
+
+
+    }
+
+    @Test
+    @DisplayName("계산식 구분자로 자르기, String 배열 반환")
+    public void formulaSplit() {
+        //준비
+        String[] formula = StringCalculator.formulaSplit("1,2;2;3");
+        String[] customCharacterFormula = StringCalculator.formulaSplit("//:<<1:2:3");
+
+        //실행
+
+
+        //단언
+        assertThat(formula.length).isEqualTo(4);
+        assertThat(customCharacterFormula[0]).isEqualTo("1");
+        assertThat(customCharacterFormula.length).isEqualTo(3);
+
+
+    }
 }
