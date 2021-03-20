@@ -59,4 +59,18 @@ class StringCalculatorTest {
 
 
     }
+
+    @Test
+    @DisplayName("더하기 결과 반환")
+    public void add() {
+        //준비
+        int result = StringCalculator.add(new String[] {"1", "2"});
+
+        //실행
+
+
+        //단언
+        assertThat(result).isEqualTo(3);
+
+    }
 }

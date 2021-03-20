@@ -54,4 +54,16 @@ public class StringCalculator {
         }
         return formula;
     }
+
+    public static int add(String[] formula) {
+        int sum = 0;
+        for (String s : formula) {
+            sum += Integer.parseInt(s);
+        }
+        return sum;
+    }
+
+    public static void printResult(int result) {
+        System.out.println("결과 = " + result);
+    }
 }
